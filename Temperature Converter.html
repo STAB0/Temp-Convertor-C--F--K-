@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 15;
+      padding: 15;
+      display: flexbox;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      background-image: url(1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      color: rgb(0, 0, 0);
+    }
+
+    h1 {
+      color: #000000;
+    }
+
+    .input-group {
+      margin-bottom: 50px;
+    }
+
+    .input-group input {
+      padding: 15px;
+      width: 250px;
+      border: 5px solid rgb(0, 0, 0); 
+      border-radius: 20px; 
+    }
+
+    .input-group button {
+      padding: 8px 16px;
+      color: rgb(0, 0, 0);
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+    .input-group button:nth-child(3) {
+      background-color: rgb(0, 0, 0);
+      border-radius: 20px;
+    }
+
+    .result {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1> <center>Temperature Converter</center></h1>
+  <center><div class="input-group">
+    <label for="celsius"><b>Celsius C&deg:</b></label>
+    <br>
+    <input type="number" id="celsius">
+    <br>
+    <button onclick="convertToCelsius()"> <b>Convert to Fahrenheit &amp; Kelvin</b></button>
+  </div></center>
+
+  <center><div class="input-group">
+    <label for="fahrenheit"><b>Fahrenheit F&deg:</b></label>
+    <br>
+    <input type="number" id="fahrenheit">
+    <br>
+    <button onclick="convertToFahrenheit()"><b>Convert to Celsius &amp; Kelvin</b></button></div><center></button>
+  </div></center>
+
+<center><div class="input-group">
+    <label for="kelvin"><b>Kelvin K&deg:</b></label>
+    <br>
+    <input type="number" id="kelvin">
+    <br>
+    <button onclick="convertToKelvin()"><b>Convert to Celsius &amp; Fahrenheit</b></button>
+  </div></center>
+
+<center><div class="result" id="result"></div></center>
+
+  <script>
+    function convertToCelsius() {
+      var celsius = document.getElementById("celsius").value;
+      var fahrenheit = (celsius * 9 / 5) + 32;
+      var kelvin = parseFloat(celsius) + 273.15;
+      document.getElementById("result").innerHTML = celsius + " C&deg Celsius = " + fahrenheit + " F&deg Fahrenheit = " + kelvin + " K&deg; Kelvin ";
+    }
+
+    function convertToFahrenheit() {
+      var fahrenheit = document.getElementById("fahrenheit").value;
+      var celsius = (fahrenheit - 32) * 5 / 9;
+      var kelvin = (parseFloat(fahrenheit) + 459.67) * 5 / 9;
+      document.getElementById("result").innerHTML = fahrenheit + " F&deg Fahrenheit = " + celsius + " C&deg Celsius = " + kelvin + " K&deg; Kelvin n";
+    }
+
+    function convertToKelvin() {
+      var kelvin = document.getElementById("kelvin").value;
+      var celsius = kelvin - 273.15;
+      var fahrenheit = (parseFloat(kelvin) * 9 / 5) - 459.67;
+      document.getElementById("result").innerHTML = kelvin + " K&deg; Kelvin = " + celsius + " C&deg Celsius= " + fahrenheit + " F&deg; Fahrenheit";
+    }
+  </script>
+</body>
+</html>
